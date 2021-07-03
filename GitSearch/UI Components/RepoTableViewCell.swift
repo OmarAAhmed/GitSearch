@@ -9,6 +9,7 @@ import UIKit
 
 class RepoTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var highlightView: UIView!
     @IBOutlet weak var userAvatar: UIImageView!
     @IBOutlet weak var repoTitle: UILabel!
     @IBOutlet weak var userNameLabel: UILabel!
@@ -17,19 +18,17 @@ class RepoTableViewCell: UITableViewCell {
         // Initialization code
     }
     
-   
-    
     func configure (with repo: Repo){
         userAvatar.configureAvatar(repo, image: &userAvatar)
-        repoTitle.text = repo.full_name
+        repoTitle.text = repo.name
         userNameLabel.text = repo.owner.login
+        highlightView.layer.cornerRadius = 20
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        
-        // Configure the view for the selected state
     }
+    
     override func prepareForReuse() {
         userAvatar.image = nil
     }
