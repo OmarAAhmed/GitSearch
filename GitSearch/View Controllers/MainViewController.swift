@@ -65,7 +65,7 @@ extension MainViewController:UITableViewDelegate, UITableViewDataSource{
         performSegue(withIdentifier: "RepoDetailsSegue", sender: self)
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return view.bounds.size.height * 0.2
+        return 150
     }
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         return UIView()
